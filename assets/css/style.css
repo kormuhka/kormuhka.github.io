@@ -1020,7 +1020,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .logo img {
-  max-width: 150px;
+  max-width: 300px;
 }
 @media only screen and (max-width: 767px) {
   .logo img {
