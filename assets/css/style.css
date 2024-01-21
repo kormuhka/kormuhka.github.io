@@ -6220,6 +6220,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   line-height: 42px;
   text-transform: capitalize;
   min-width: 270px;
+  border-radius: 3px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .product_variant.quantity button {
@@ -6238,7 +6239,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .product_variant.quantity button:hover {
-  background: #3E444A;
+  background: #FFC107;
 }
 .product_variant.color {
   margin-bottom: 26px;
