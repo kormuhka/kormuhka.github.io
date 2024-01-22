@@ -5058,11 +5058,11 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .breadcrumbs_area {
   background: #f0f0f0;
   border-bottom: 1px solid #e1e1e1;
-  padding: 50px 0;
+  padding: 10px;
 }
 @media only screen and (max-width: 767px) {
   .breadcrumbs_area {
-    padding: 20px 0;
+    padding: 20px;
   }
 }
 
