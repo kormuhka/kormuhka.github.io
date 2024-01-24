@@ -517,7 +517,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .mb-100 {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 /* 02. Element */
@@ -6220,6 +6220,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   line-height: 42px;
   text-transform: capitalize;
   min-width: 270px;
+  border-radius: 30px;
+  color: #fff;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .product_variant.quantity button {
@@ -9746,7 +9748,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .blog_details {
   margin-bottom: 87px;
-  margin-top: 93px;
+  margin-top: 30px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .blog_details {
@@ -9761,7 +9763,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .blog_details .single_blog {
-  margin-bottom: 91px;
+  margin-bottom: 60px;
   padding-bottom: 0;
   border-bottom: 0;
 }
