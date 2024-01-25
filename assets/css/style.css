@@ -4919,7 +4919,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
   .footer_social ul li a {
     width: 48px;
-    height: 48px;
+    height: 47px;
     line-height: 35px;
   }
 }
