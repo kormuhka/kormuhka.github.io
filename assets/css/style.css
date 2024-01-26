@@ -517,7 +517,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .mb-100 {
-  margin-bottom: 60px;
+  margin-bottom: 5px;
 }
 
 /* 02. Element */
@@ -6044,7 +6044,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .product_d_right .product_desc {
-  margin-bottom: 19px;
+  margin-bottom: 20px;
   padding-bottom: 24px;
   border-bottom: 1px solid #e1e1e1;
 }
