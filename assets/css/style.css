@@ -6220,6 +6220,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   line-height: 42px;
   text-transform: capitalize;
   min-width: 270px;
+  color: #fff;
+  border-radius: 30px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .product_variant.quantity button {
