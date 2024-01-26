@@ -2601,8 +2601,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .slider_content h1 {
-  font-size: 90px;
-  line-height: 90px;
+  font-size: 60px;
+  line-height: 35px;
   font-weight: 500;
   margin-bottom: 33px;
   text-transform: uppercase;
