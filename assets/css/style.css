@@ -2601,7 +2601,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .slider_content h1 {
-  font-size: 90px;
+  font-size: 55px;
   line-height: 90px;
   font-weight: 500;
   margin-bottom: 33px;
@@ -2610,7 +2610,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .slider_content h1 {
-    font-size: 55px;
+    font-size: 33px;
     line-height: 63px;
     margin-bottom: 23px;
   }
