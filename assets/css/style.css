@@ -2475,7 +2475,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .single_slider {
-    height: 519px;
+    height: 560px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
