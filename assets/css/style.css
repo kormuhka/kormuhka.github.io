@@ -5962,7 +5962,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
   .product_details {
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
   }
 }
 
@@ -6236,7 +6236,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
   .product_variant.quantity button {
     min-width: inherit;
-    margin-left: 10px;
+    margin-left: 120px;
   }
 }
 .product_variant.quantity button:hover {
