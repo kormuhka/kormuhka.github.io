@@ -6236,7 +6236,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 @media only screen and (max-width: 767px) {
   .product_variant.quantity button {
     min-width: inherit;
-    margin-left: 120px;
+    margin-left: 100px;
   }
 }
 .product_variant.quantity button:hover {
