@@ -10601,6 +10601,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .error_form {
   text-align: center;
+  margin-bottom: 31px;
 }
 .error_form h1 {
   font-size: 200px;
@@ -10609,6 +10610,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   letter-spacing: 10px;
   line-height: 160px;
   margin: 0 0 83px;
+  margin-top: 30px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .error_form h1 {
@@ -10697,7 +10699,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   line-height: 44px;
   padding: 0 30px;
   text-transform: uppercase;
-  margin-top: 35px;
+  /* margin-top: 35px; */
   border-radius: 3px;
 }
 @media only screen and (max-width: 767px) {
