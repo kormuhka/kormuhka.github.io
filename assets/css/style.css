@@ -10605,10 +10605,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .error_form h1 {
   font-size: 200px;
   font-weight: 700;
-  color: #79a206;
+  color: #FF9800;
   letter-spacing: 10px;
   line-height: 160px;
-  /* margin: 0 0 83px; */
+  margin: 0 0 83px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .error_form h1 {
