@@ -3282,6 +3282,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .section_title {
   text-align: center;
   margin-bottom: 30px;
+  hover: #ffff;
   font-family: "Lora", serif
   }
 .section_title a:hover {
