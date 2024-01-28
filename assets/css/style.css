@@ -9917,8 +9917,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .entry_content .post_meta span {
   font-weight: 500;
-  font-size: 9px;
-  font-family: Bradley Hand;
+  font-size: 13px;
 }
 .entry_content .post_meta span a:hover {
   color: #79a206;
@@ -10600,16 +10599,16 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border-bottom: 1px solid #e1e1e1;
 }
 
-. {
+.error_form {
   text-align: center;
 }
 .error_form h1 {
   font-size: 200px;
   font-weight: 700;
-  color: #FF9800;
+  color: #79a206;
   letter-spacing: 10px;
   line-height: 160px;
-  margin: 0 0 83px;
+  /* margin: 0 0 83px; */
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .error_form h1 {
