@@ -9917,7 +9917,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .entry_content .post_meta span {
   font-weight: 500;
-  font-size: 13px;
+  font-size: 9px;
+  font-family: Bradley Hand;
 }
 .entry_content .post_meta span a:hover {
   color: #79a206;
