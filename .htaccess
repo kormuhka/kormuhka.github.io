@@ -1,3 +1,5 @@
 RewriteEngine On
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTPS/
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /contact\.html\ HTTPS/
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /product-details\.html\ HTTPS/
 RewriteRule ^index\.html$ https://kormushka24.by/ [R=301,L]
