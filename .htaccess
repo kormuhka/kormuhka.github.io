@@ -1,5 +1,8 @@
-RewriteEngine On
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTPS/
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /contact\.html\ HTTPS/
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /product-details\.html\ HTTPS/
-RewriteRule ^index\.html$ https://kormushka24.by/ [R=301,L]
+RewriteEngine on
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ kormushka24.by/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule (.*) /$1.html
