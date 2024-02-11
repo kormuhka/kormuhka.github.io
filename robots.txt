@@ -1,9 +1,7 @@
-User-agent: *
-Crawl-delay: 1
-Host: kormushka24.by
-Disallow: /login.html
-Disallow: /cart.html
-Disallow: /checkout.html
-Disallow: /shop.html
-Sitemap: http://kormushka24.by/sitemap.xml
-
+User-agent: Googlebot
+User-agent: googlebot-image
+User-agent: googlebot-mobile
+Disallow: /cgi-bin/
+Sitemap: https://www.kormushka24.by
+User-agent: Yandex
+Sitemap: https://www.kormushka24.by/sitemap.xml
