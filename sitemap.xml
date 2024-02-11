@@ -1,24 +1,46 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
 <url>
-	<loc>https://www.kormushka24.by/</loc>
-	<lastmod>2024-02-05T16:54:10+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://www.kormushka24.by/</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-	<loc>https://www.kormushka24.by/product-details.html</loc>
-	<lastmod>2024-02-05T16:54:10+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://www.kormushka24.by/index</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>https://www.kormushka24.by/contact.html</loc>
-	<lastmod>2024-02-05T16:54:10+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://www.kormushka24.by/kormushka-bunkernaya</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>https://www.kormushka24.by/kufar1.html</loc>
-	<lastmod>2024-02-05T16:54:10+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>https://www.kormushka24.by/contact</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://www.kormushka24.by/blog-details3</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.kormushka24.by/blog-details2</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.kormushka24.by/blog-details1</loc>
+  <lastmod>2024-02-11T12:22:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
 </urlset>
