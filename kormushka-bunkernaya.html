@@ -72,6 +72,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="assets/js/fancybox/source/jquery.fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/xzoom.css" media="all" />
 
 </head>
 
@@ -224,53 +226,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <div class="product-details-tab">
-                        <div id="img-1" class="zoomWrapper single-zoom">
-                            <a href="#">
-                                <img id="zoom1" src="assets/img/product/productbig5.jpg"
-                                    data-zoom-image="assets/img/product/productbig5.jpg" alt="big-1">
-                            </a>
-                        </div>
+                        <img class="xzoom4" id="xzoom-fancy" src="assets/img/product/productbig5.jpg" xoriginal="assets/img/product/productbig5.jpg" />
                         <div class="single-zoom-thumb">
-                            <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
-                                <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update=""
-                                        data-image="assets/img/product/productbig4.jpg"
-                                        data-zoom-image="assets/img/product/productbig4.jpg">
-                                        <img src="assets/img/product/productbig4.jpg" alt="zo-th-1" />
-                                    </a>
-                                    <li>
-                                        <a href="#" class="elevatezoom-gallery active" data-update=""
-                                            data-image="assets/img/product/productbig1.jpg"
-                                            data-zoom-image="assets/img/product/productbig1.jpg">
-                                            <img src="assets/img/product/productbig1.jpg" alt="zo-th-1" />
-                                     </a>
-                                     </li>
-                                <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update=""
-                                        data-image="assets/img/product/productbig2.jpg"
-                                        data-zoom-image="assets/img/product/productbig2.jpg">
-                                        <img src="assets/img/product/productbig2.jpg" alt="zo-th-1" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update=""
-                                        data-image="assets/img/product/productbig3.jpg"
-                                        data-zoom-image="assets/img/product/productbig3.jpg">
-                                        <img src="assets/img/product/productbig3.jpg" alt="zo-th-1" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update=""
-                                        data-image="assets/img/product/productbig5.jpg"
-                                        data-zoom-image="assets/img/product/productbig5.jpg">
-                                        <img src="assets/img/product/productbig5.jpg" alt="zo-th-1" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                            <a href="assets/img/product/productbig5.jpg"><img class="xzoom-gallery4" width="100" src="assets/img/product/productbig5.jpg"  xpreview="assets/img/product/productbig5.jpg" title="The description goes here"></a>
+                            <a href="assets/img/product/productbig4.jpg"><img class="xzoom-gallery4" width="100" src="assets/img/product/productbig4.jpg" title="The description goes here"></a>
+                            <a href="assets/img/product/productbig1.jpg"><img class="xzoom-gallery4" width="100" src="assets/img/product/productbig1.jpg" title="The description goes here"></a>
+                            <a href="assets/img/product/productbig2.jpg"><img class="xzoom-gallery4" width="100" src="assets/img/product/productbig2.jpg" title="The description goes here"></a>
+                            <a href="assets/img/product/productbig3.jpg"><img class="xzoom-gallery4" width="100" src="assets/img/product/productbig3.jpg" title="The description goes here"></a>
+                         <div>
+                     </div>
+                 </div>
+             </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product_d_right">
                         <form action="#">
@@ -479,7 +445,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- JS
 ============================================ -->
     <!--jquery min js-->
-    <script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--popper min js-->
     <script src="assets/js/popper.js"></script>
     <!--bootstrap min js-->
@@ -507,6 +473,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/setup.js"></script>
+    <script src="assets/js/xzoom.min.js"></script>
+    <script src="assets/js/fancybox/source/jquery.fancybox.js"></script>
+
 
 
 
