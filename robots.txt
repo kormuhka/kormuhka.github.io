@@ -2,6 +2,6 @@ User-agent: Googlebot
 User-agent: googlebot-image
 User-agent: googlebot-mobile
 Disallow: /cgi-bin/
-Sitemap: https://www.kormushka24.by
+Sitemap: https://www.kormuhka.github.io/kormuhka/
 User-agent: Yandex
-Sitemap: https://www.kormushka24.by/sitemap.xml
+Sitemap: https://kormuhka.github.io/kormuhka/sitemap.xml
