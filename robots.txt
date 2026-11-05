@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /order-on-kufar
+Disallow: /404
+
+Sitemap: https://kormuhka.github.io/sitemap.xml
