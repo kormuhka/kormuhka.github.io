@@ -15,3 +15,23 @@
 .seo_text p{font-size:15px;line-height:1.7;color:#555;max-width:900px;margin:0 auto 10px}
 .seo_text h3{max-width:900px;margin-left:auto;margin-right:auto}
 .seo_text a{color:#79a206;text-decoration:underline}
+/* Галерея товара */
+#xzoom-fancy{cursor:zoom-in;max-width:100%;height:auto}
+.single-zoom-thumb a.active img{border-color:#79a206}
+.single-zoom-thumb img.xzoom-gallery4{vertical-align:top}
+/* Свёрнутый SEO-текст */
+.seo_more{max-width:900px;margin:0 auto}
+.seo_more summary{cursor:pointer;list-style:none;text-align:center;font-size:13px;color:#8a8a8a}
+.seo_more summary::-webkit-details-marker{display:none}
+.seo_more summary::after{content:" ▾"}
+.seo_more[open] summary::after{content:" ▴"}
+.seo_more summary:hover{color:#79a206}
+.seo_more[open] summary{margin-bottom:14px}
+/* Мобильные */
+@media (max-width:767px){
+  .seo_text h2{font-size:20px}
+  .footer_sites{padding:0 12px}
+  .footer_sites span{display:none}
+  .footer_sites a{display:block;margin-top:4px;border-bottom:0;text-decoration:underline dotted}
+  .single-zoom-thumb{width:100%}
+}
