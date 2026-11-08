@@ -32,7 +32,7 @@
             $links.on('click', function (e) {
                 e.preventDefault();
                 current = $links.index(this);
-                $main.attr('src', $(this).attr('href'));
+                $main.attr('src', $(this).find('img').attr('xpreview') || $(this).attr('href'));
                 $links.removeClass('active');
                 $(this).addClass('active');
             });
