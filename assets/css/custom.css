@@ -16,7 +16,7 @@
 .seo_text h3{max-width:900px;margin-left:auto;margin-right:auto}
 .seo_text a{color:#79a206;text-decoration:underline}
 /* Галерея товара */
-#xzoom-fancy{cursor:zoom-in;max-width:100%;height:auto}
+
 .single-zoom-thumb a.active img{border-color:#79a206}
 .single-zoom-thumb img.xzoom-gallery4{vertical-align:top}
 /* Свёрнутый SEO-текст */
@@ -35,3 +35,7 @@
   .footer_sites a{display:block;margin-top:4px;border-bottom:0;text-decoration:underline dotted}
   .single-zoom-thumb{width:100%}
 }
+/* Главное фото: рамка и увеличение при наведении */
+.zoom-frame{position:relative;display:inline-block;max-width:100%;overflow:hidden;line-height:0;cursor:zoom-in;box-shadow:0 0 5px 0 rgba(0,0,0,.5)}
+.zoom-frame #xzoom-fancy{display:block;max-width:100%;width:auto;height:auto;box-shadow:none}
+.zoom-lens{display:none;position:absolute;top:0;right:0;bottom:0;left:0;background-repeat:no-repeat;background-color:#fff;pointer-events:none}

@@ -1,10 +1,29 @@
 (function ($) {
     $(document).ready(function () {
-        var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
         var $main = $('#xzoom-fancy');
+        if (!$main.length) { return; }
+
         var $links = $('.single-zoom-thumb a');
         var current = 0;
+        var ZOOM = 2.2;
         var fancyOpts = {padding: 0, helpers: {overlay: {locked: false}}};
+        var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+        // Рамка вокруг главного фото и слой увеличения
+        $main.wrap('<div class="zoom-frame"></div>');
+        var $frame = $main.parent();
+        var $lens = $('<div class="zoom-lens"></div>').appendTo($frame);
+
+        function previewOf($a) { return $a.find('img').attr('xpreview') || $a.attr('href'); }
+
+        function select(i) {
+            current = i;
+            var $a = $links.eq(i);
+            $main.attr('src', previewOf($a));
+            $links.removeClass('active');
+            $a.addClass('active');
+            $lens.hide();
+        }
 
         function galleryItems() {
             var list = [];
@@ -14,42 +33,46 @@
             return list;
         }
 
-        function openGallery(index) {
+        function openGallery() {
             var list = galleryItems();
             if (!list.length) { return; }
             if ($.fancybox && $.fancybox.open) {
-                $.fancybox.open(list, $.extend({index: index || 0}, fancyOpts));
+                $.fancybox.open(list, $.extend({index: current}, fancyOpts));
             } else {
-                window.location.href = list[index || 0].href;
+                window.location.href = list[current].href;
             }
         }
 
-        if (isTouch) {
-            // Телефоны и планшеты: без hover-зума. Тап по миниатюре меняет фото,
-            // тап по большому фото открывает галерею на весь экран.
-            $links.eq(0).addClass('active');
+        $links.eq(0).addClass('active');
 
-            $links.on('click', function (e) {
-                e.preventDefault();
-                current = $links.index(this);
-                $main.attr('src', $(this).find('img').attr('xpreview') || $(this).attr('href'));
-                $links.removeClass('active');
-                $(this).addClass('active');
-            });
+        // Миниатюры: меняют главное фото (мышью и касанием)
+        $links.on('click', function (e) {
+            e.preventDefault();
+            select($links.index(this));
+        });
 
-            $main.on('click', function (e) {
-                e.preventDefault();
-                openGallery(current);
-            });
-        } else {
-            // Компьютеры: зум при наведении и галерея по клику
-            $('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15});
+        // Клик по главному фото: галерея на весь экран
+        $frame.on('click', function (e) {
+            e.preventDefault();
+            openGallery();
+        });
 
-            $('#xzoom-fancy').bind('click', function (event) {
-                var xzoom = $(this).data('xzoom');
-                xzoom.closezoom();
-                $.fancybox.open(xzoom.gallery().cgallery, fancyOpts);
-                event.preventDefault();
+        // Увеличение при наведении (только мышь): пропорции сохраняются всегда
+        if (canHover && $links.length) {
+            $frame.on('mouseenter', function () {
+                var w = $main.width();
+                $lens.css({
+                    backgroundImage: 'url("' + $links.eq(current).attr('href') + '")',
+                    backgroundSize: (w * ZOOM) + 'px auto'
+                }).show();
+            }).on('mousemove', function (e) {
+                var off = $frame.offset();
+                var w = $main.width(), h = $main.height();
+                var x = Math.min(Math.max((e.pageX - off.left) / w, 0), 1);
+                var y = Math.min(Math.max((e.pageY - off.top) / h, 0), 1);
+                $lens.css('backgroundPosition', (-x * w * (ZOOM - 1)) + 'px ' + (-y * h * (ZOOM - 1)) + 'px');
+            }).on('mouseleave', function () {
+                $lens.hide();
             });
         }
     });
