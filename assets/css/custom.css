@@ -42,3 +42,7 @@
 /* Логотип */
 .logo img{max-width:200px;height:auto}
 @media (max-width:767px){.logo img{max-width:140px}}
+/* Слайдер: голова лазоревки не обрезается сверху */
+@media (min-width:768px){
+  .single_slider{background-position:center 15%}
+}
