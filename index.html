@@ -51,13 +51,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <meta name="description" content="Сетчатые и бункерные кормушки для птиц в Беларуси: кормушка для синиц, деревянная «Сальница» для сала и дятлов. Ручная работа, доставка Европочтой по всей стране.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="icon" href="https://kormuhka.github.io/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="assets/img/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="assets/img/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Kormuhka" />
-    <link rel="manifest" href="assets/img/favicon/site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Kormuhka">
+    <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
     <!-- CSS 
     ========================= -->
     <!--bootstrap min css-->
@@ -316,26 +315,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="col-lg-6">
                     <div class="adapt_about">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single_adapt text-center">
-                                    <img src="assets/img/icon/1.png" alt="">
-                                    <div class="adapt_content">
-                                        <h3><span class="counter">59</span>+</h3>
-                                        <p>Скормлено Kg. семечек</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single_adapt text-center">
-                                    <img src="assets/img/icon/2.png" alt="">
-                                    <div class="adapt_content">
-                                        <h3><span class="counter">28</span>+</h3>
-                                        <p>Изготовлено кормушек</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Птица дня: заполняется assets/js/bird-of-day.js -->
+                        <aside class="bird_day" id="birdDay" aria-label="Птица дня" hidden></aside>
                     </div>
                 </div>
             </div>
@@ -546,6 +527,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           time: 1000
         });
       </script>
+    <!-- Птица дня -->
+    <script src="assets/js/birds-data.js"></script>
+    <script src="assets/js/birds-credits.js"></script>
+    <script src="assets/js/bird-of-day.js"></script>
   
 </body>
 
