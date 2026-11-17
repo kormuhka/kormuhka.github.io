@@ -101,7 +101,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {"@context":"https://schema.org","@type":"WebSite","name":"Kormushka.by","alternateName":["Kormuhka","Кормушки для птиц в Беларуси"],"url":"https://kormuhka.github.io/","inLanguage":"ru"}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Kormushka.by","alternateName":"Kormuhka","url":"https://kormuhka.github.io/","logo":"https://kormuhka.github.io/assets/img/logo/logo-final.png","email":"kormushka24.by@gmail.com","areaServed":"BY","description":"Сетчатые, бункерные и деревянные кормушки для птиц ручной работы в Беларуси."}
+    {"@context":"https://schema.org","@type":"Organization","name":"Kormushka.by","alternateName":"Kormuhka","url":"https://kormuhka.github.io/","logo":"https://kormuhka.github.io/assets/img/logo/logo-final.png","email":"kormuhka.by@gmail.com","areaServed":"BY","description":"Сетчатые, бункерные и деревянные кормушки для птиц ручной работы в Беларуси."}
     </script>
 
 </head>
@@ -151,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
 
                         <div class="offcanvas_footer">
-                            <span><a href="#"><i class="fa fa-envelope-o"></i> kormushka24.by@gmail.com</a></span>
+                            <span><a href="#"><i class="fa fa-envelope-o"></i> kormuhka.by@gmail.com</a></span>
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="col-lg-3">
                             <div class="call-support">
-                                <p>Email: <a href="mailto:kormushka24.by@gmail.com">kormushka24.by@gmail.com</a></p>
+                                <p>Email: <a href="mailto:kormuhka.by@gmail.com">kormuhka.by@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -324,6 +324,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!--banner area end-->
+
+    <!--weather start-->
+    <section class="wx_area">
+        <div class="container">
+            <div class="wx is-loading" id="weather" data-lat="54.5081" data-lon="30.4172" data-city="Орша" role="region" aria-label="Погода в Орше">
+                <svg class="wx__fan" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false">
+                    <rect class="wx__pole" x="30.8" y="34" width="2.4" height="28" rx="1"/>
+                    <g class="wx__rotor">
+                        <path d="M32 31C25 24 26 10 32 5C38 10 39 24 32 31Z"/>
+                        <path d="M32 31C25 24 26 10 32 5C38 10 39 24 32 31Z" transform="rotate(90 32 32)"/>
+                        <path d="M32 31C25 24 26 10 32 5C38 10 39 24 32 31Z" transform="rotate(180 32 32)"/>
+                        <path d="M32 31C25 24 26 10 32 5C38 10 39 24 32 31Z" transform="rotate(270 32 32)"/>
+                        <circle class="wx__hub" cx="32" cy="32" r="4"/>
+                    </g>
+                </svg>
+                <div class="wx__head">
+                    <span class="wx__title">Погода в Орше</span>
+                    <span class="wx__cond" data-wx="cond">Загружаем данные…</span>
+                </div>
+                <div class="wx__item"><span class="wx__label">Сейчас</span><span class="wx__value" data-wx="temp">—</span></div>
+                <div class="wx__item"><span class="wx__label">Ощущается как</span><span class="wx__value" data-wx="feels">—</span></div>
+                <div class="wx__item"><span class="wx__label">Ночью</span><span class="wx__value" data-wx="night">—</span></div>
+                <div class="wx__item"><span class="wx__label">Ветер</span><span class="wx__value" data-wx="wind">—</span></div>
+                <p class="wx__note"><span data-wx="updated"></span><a href="https://open-meteo.com/" target="_blank" rel="noopener nofollow">Weather data by Open-Meteo.com</a></p>
+            </div>
+        </div>
+    </section>
+    <!--weather end-->
+
 
     <!--product area start-->
  
@@ -531,6 +560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/js/birds-data.js"></script>
     <script src="assets/js/birds-credits.js"></script>
     <script src="assets/js/bird-of-day.js"></script>
+    <script src="assets/js/weather.js"></script>
   
 </body>
 
