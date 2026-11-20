@@ -3,11 +3,15 @@
    без хранилища браузера и без сервера. В течение суток птица не меняется, а за один цикл
    (по числу видов в каталоге) каждая птица встречается ровно один раз, и одна и та же птица
    не выпадает два дня подряд, в том числе на стыке циклов.
-   Для проверки: ?date=2026-11-12 — показать птицу на эту дату, ?bird=parus-major — показать конкретный вид. */
+   Вид карточки подстраивается под фото: вертикальный снимок показывается в боковой рамке,
+   горизонтальный — на всю карточку, а подробности открываются кнопкой «Подробнее».
+   Для проверки: ?date=2026-11-12 — показать птицу на эту дату, ?bird=parus-major — конкретный вид. */
 (function (global) {
     'use strict';
 
     var MS_DAY = 86400000;
+    var LANDSCAPE_FROM = 0.95;     // отношение ширины фото к высоте, с которого фото считается горизонтальным
+    var MODE_TIMEOUT = 3000;       // если фото не загрузилось за это время — показываем боковой вариант
 
     function dayNumber(d) {
         // номер суток по ЛОКАЛЬНОЙ дате (не зависит от времени суток и часового пояса браузера)
@@ -54,6 +58,12 @@
         return birds[pickIndex(dayNumber(date), birds.length)];
     }
 
+    // 'landscape' — фото на всю карточку, 'portrait' — боковая рамка
+    function modeFor(width, height) {
+        if (!width || !height) { return 'portrait'; }
+        return width / height >= LANDSCAPE_FROM ? 'landscape' : 'portrait';
+    }
+
     var SVG = '<svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true" focusable="false">' +
         '<g fill="currentColor"><ellipse cx="30" cy="38" rx="18" ry="12"/><circle cx="46" cy="27" r="9"/>' +
         '<path d="M54 26l9 3-9 3z"/><path d="M14 36L2 29l3 13z"/>' +
@@ -64,6 +74,12 @@
         if (cls) { e.className = cls; }
         if (text !== undefined && text !== null) { e.textContent = text; }
         return e;
+    }
+
+    // ссылка на статью в русской Википедии; если у птицы есть точное поле wiki, берём его,
+    // иначе — переход по латинскому названию (Википедия сама ведёт на нужную статью)
+    function wikiUrl(bird) {
+        return bird.wiki || ('https://ru.wikipedia.org/wiki/Special:Search?search=' + encodeURIComponent(bird.lat) + '&go=Go');
     }
 
     function row(label, text) {
@@ -81,6 +97,10 @@
 
     function render(root, bird) {
         while (root.firstChild) { root.removeChild(root.firstChild); }
+        root.classList.remove('is-portrait');
+        root.classList.remove('is-landscape');
+        root.classList.remove('is-open');
+        root.classList.add('is-pending');
 
         var photo = el('div', 'bird_day__photo');
         var img = document.createElement('img');
@@ -88,12 +108,21 @@
         img.width = 800;
         img.height = 600;
         img.decoding = 'async';
+
+        function setMode(mode) {
+            if (!root.classList.contains('is-pending')) { return; }
+            root.classList.remove('is-pending');
+            root.classList.add('is-' + mode);
+        }
+        img.addEventListener('load', function () { setMode(modeFor(img.naturalWidth, img.naturalHeight)); });
         img.addEventListener('error', function () {
             if (img.parentNode === photo) {
                 photo.removeChild(img);
                 photo.appendChild(placeholder());
             }
+            setMode('portrait');
         });
+        setTimeout(function () { setMode('portrait'); }, MODE_TIMEOUT);
         img.src = bird.img;
         photo.appendChild(img);
 
@@ -109,7 +138,19 @@
             photo.appendChild(cr);
         }
 
+        // подпись поверх фото (видна только в горизонтальном варианте)
+        var cap = el('div', 'bird_day__cap');
+        cap.appendChild(el('span', 'bird_day__label', 'Птица дня'));
+        cap.appendChild(el('p', 'bird_day__cap-name', bird.ru));
+        cap.appendChild(el('p', 'bird_day__lat', bird.lat));
+        var toggle = el('button', 'bird_day__toggle', 'Подробнее');
+        toggle.type = 'button';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-controls', 'birdDayBody');
+        cap.appendChild(toggle);
+
         var body = el('div', 'bird_day__body');
+        body.id = 'birdDayBody';
         body.appendChild(el('span', 'bird_day__label', 'Птица дня'));
         body.appendChild(el('h3', 'bird_day__name', bird.ru));
         body.appendChild(el('p', 'bird_day__lat', bird.lat));
@@ -121,7 +162,26 @@
         fact.appendChild(document.createTextNode(bird.fact));
         body.appendChild(fact);
 
+        var more = el('a', 'bird_day__more', 'Читать в Википедии \u2192');
+        more.href = wikiUrl(bird);
+        more.target = '_blank';
+        more.rel = 'noopener';
+        body.appendChild(more);
+
+        var close = el('button', 'bird_day__close', 'Закрыть');
+        close.type = 'button';
+        body.appendChild(close);
+
+        function open(v) {
+            if (v) { root.classList.add('is-open'); } else { root.classList.remove('is-open'); }
+            toggle.setAttribute('aria-expanded', v ? 'true' : 'false');
+            if (v && close.focus) { close.focus(); } else if (!v && toggle.focus) { toggle.focus(); }
+        }
+        toggle.addEventListener('click', function () { open(true); });
+        close.addEventListener('click', function () { open(false); });
+
         root.appendChild(photo);
+        root.appendChild(cap);
         root.appendChild(body);
         root.hidden = false;
     }
@@ -155,6 +215,14 @@
         }
         show();
 
+        // Esc закрывает панель подробностей
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && root.classList.contains('is-open')) {
+                var btn = root.querySelector('.bird_day__close');
+                if (btn && btn.click) { btn.click(); }
+            }
+        });
+
         // если страница открыта в полночь — обновляем птицу на новую дату
         if (!forced && !fixedDate) {
             (function schedule() {
@@ -165,7 +233,7 @@
         }
     }
 
-    global.BirdOfDay = { dayNumber: dayNumber, pickIndex: pickIndex, pickBird: pickBird, render: render };
+    global.BirdOfDay = { dayNumber: dayNumber, pickIndex: pickIndex, pickBird: pickBird, render: render, wikiUrl: wikiUrl, modeFor: modeFor };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = global.BirdOfDay;

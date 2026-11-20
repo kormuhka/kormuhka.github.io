@@ -46,13 +46,16 @@
 @media (min-width:768px){
   .single_slider{background-position:center 15%}
 }
-/* «Птица дня»: карточка на всю высоту блока и по краям совпадает с баннером «Кормушка для птиц» */
-.bird_day{display:flex;overflow:hidden;background:#fff;border-radius:0;box-shadow:0 16px 35px 0 rgba(0,0,2,.08);text-align:left}
+/* «Птица дня»: карточка на всю высоту блока, верх и низ совпадают с баннером «Кормушка для птиц».
+   Вертикальное фото — боковая рамка (is-portrait), горизонтальное — на всю карточку (is-landscape). */
+.bird_day{position:relative;display:flex;overflow:hidden;background:#fff;border-radius:0;box-shadow:0 16px 35px 0 rgba(0,0,2,.08);text-align:left}
 .bird_day[hidden]{display:none}
-.bird_day__photo{position:relative;flex:0 0 38%;min-height:250px;background:#eef3e8}
-.bird_day__photo img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.bird_day.is-pending{visibility:hidden}
+.bird_day__photo{position:relative;overflow:hidden;flex:0 0 44%;min-height:250px;background:#e6ecde}
+.bird_day__photo img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}
 .bird_day__ph{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#b4c79a;font-size:13px;text-align:center;padding:10px}
 .bird_day__credit{position:absolute;left:0;right:0;bottom:0;padding:3px 8px;font-size:10px;line-height:1.3;color:#fff;background:rgba(0,0,0,.45);text-decoration:none}
+.bird_day__cap,.bird_day__close{display:none}
 .bird_day__body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:16px 20px 14px}
 .bird_day__label{display:block;margin-bottom:4px;font-family:"Poppins",sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#79a206}
 .bird_day__name{margin:0;font-family:"Poppins",sans-serif;font-size:21px;font-weight:700;line-height:1.2;color:#383737;overflow-wrap:anywhere}
@@ -60,7 +63,28 @@
 .bird_day__desc{margin:0 0 8px;font-size:14px;line-height:1.5;color:#555}
 .bird_day__row{margin:0 0 4px;font-size:13px;line-height:1.45;color:#555}
 .bird_day__row b{color:#383737}
+.bird_day__more{align-self:flex-start;margin-top:8px;font-size:12px;line-height:1.3;color:#79a206;text-decoration:none;border-bottom:1px dotted #79a206}
+.bird_day__more:hover{color:#5f8205;border-bottom-style:solid}
 .bird_day__fact{margin:8px 0 0;padding:8px 10px;border-radius:8px;background:#f4f8ec;font-size:13px;line-height:1.45;color:#4a5a32}
+/* горизонтальное фото: на всю карточку, подпись внизу, подробности выезжают по кнопке */
+.bird_day.is-landscape{display:block;min-height:300px}
+.bird_day.is-landscape .bird_day__photo{position:absolute;top:0;right:0;bottom:0;left:0;flex:none;min-height:0}
+.bird_day.is-landscape .bird_day__photo img{object-position:center 25%}
+.bird_day.is-landscape .bird_day__credit{top:0;bottom:auto}
+.bird_day.is-landscape::after{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top,rgba(10,16,6,.82),rgba(10,16,6,0));pointer-events:none;z-index:1}
+.bird_day.is-landscape .bird_day__cap{display:block;position:absolute;left:26px;right:26px;bottom:22px;z-index:2;color:#fff}
+.bird_day.is-landscape .bird_day__cap .bird_day__label{color:#c9e38a}
+.bird_day__cap-name{margin:0;font-family:"Poppins",sans-serif;font-size:28px;font-weight:700;line-height:1.2;color:#fff;overflow-wrap:anywhere}
+.bird_day.is-landscape .bird_day__cap .bird_day__lat{margin:2px 0 12px;color:#e4e8dc}
+.bird_day__toggle,.bird_day__close{font-family:"Poppins",sans-serif;font-size:13px;font-weight:600;line-height:1;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;padding:0 0 4px;cursor:pointer}
+.bird_day__toggle{color:#fff;border-bottom:2px solid #c9e38a}
+.bird_day__toggle:focus-visible,.bird_day__close:focus-visible{outline:2px solid #79a206;outline-offset:4px}
+.bird_day.is-landscape .bird_day__body{position:absolute;top:0;right:0;bottom:0;left:0;z-index:3;justify-content:flex-start;padding:22px 26px;overflow:auto;background:rgba(255,255,255,.97);transform:translateY(101%);visibility:hidden;transition:transform .35s ease,visibility 0s .35s}
+.bird_day.is-landscape.is-open .bird_day__body{transform:none;visibility:visible;transition:transform .35s ease,visibility 0s}
+.bird_day.is-landscape .bird_day__close{display:inline-block;align-self:flex-start;margin-top:12px;color:#383737;border-bottom:2px solid #79a206}
+@media (prefers-reduced-motion:reduce){
+  .bird_day.is-landscape .bird_day__body,.bird_day.is-landscape.is-open .bird_day__body{transition:none}
+}
 @media (min-width:992px){
   /* обе колонки одной высоты: верх и низ карточки совпадают с верхом и низом картинки баннера */
   .adapt_area .row.align-items-center{align-items:stretch!important}
@@ -72,14 +96,19 @@
   .adapt_area .adapt_about .bird_day{flex:1 1 auto;margin:0}
 }
 @media (max-width:991px){
-  .bird_day__photo{flex-basis:34%}
+  .bird_day__photo{flex-basis:40%}
   .adapt_area .adapt_about{margin-top:5px}
+  .bird_day.is-landscape{aspect-ratio:4/3;min-height:0}
 }
 @media (max-width:575px){
-  .bird_day{flex-direction:column}
-  .bird_day__photo{flex:0 0 auto;width:100%;height:210px;min-height:0}
+  .bird_day:not(.is-landscape){flex-direction:column}
+  .bird_day:not(.is-landscape) .bird_day__photo{flex:0 0 auto;width:100%;height:300px;min-height:0}
   .bird_day__body{padding:14px 16px 12px}
+  .bird_day.is-landscape .bird_day__cap{left:16px;right:16px;bottom:16px}
+  .bird_day__cap-name{font-size:22px}
+  .bird_day.is-landscape .bird_day__body{padding:16px}
 }
+
 /* Информер погоды */
 .wx_area{padding:0 0 30px}
 .wx{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;padding:14px 26px;background:#fff;border-radius:0;box-shadow:0 16px 35px 0 rgba(0,0,2,.08)}
